@@ -1,0 +1,11 @@
+Assuming that the application will be used by 100-200 concurrent users, what kind of architecture and technologies did you choose for
+this application? Why ? 
+- I am using SocketIO, SocketIO is a library that enables a real-time communication between any device and its server.
+
+How would you change the architecture to have it working for 10,000 users? 
+- I would make it full pledge socketIO and leverage its capacity to handle multiple request. 
+Having multiple REST APIs could increase its overhead by opening/closing connection for each request.
+
+How did you structure the code? Why? 
+- I structure the code based on the action that each API is performing. I created PATCH method for my updateTask endpoint and POST method for my createTask endpoint.
+I created an instance of socketIO Server where the client can emit and listen based on the action name such as task_list and task_updates.
